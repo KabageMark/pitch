@@ -1,2 +1,28 @@
 
-       
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <div class="content-section">
+       <form method="POST" action="">
+           {{form.hidden_tag()}}
+           <fieldset class="form-group">
+               <legend class="border-bottom mb-4">join Today</legend>
+            <div class="form-group">
+                {{form.email.label}}
+                {{form.email(class="form-controll") }}
+            </div>
+            <div class="form-group">
+                {{form.password.label}}
+                {{form.password (class="form-controll")}}
+            </div>
+           </fieldset>
+           <div class="form-group">
+               {{form.submit}}
+               </div>
+       </form>
+   </div>
+   <div class="border-top pt-3">
+        <small class="text-muted">
+          createan account? <a class="ml-2" href="{{url_for ('Register')}}">sign up </a>
+        </small>
+   </div>
+{% endblock %} 
