@@ -1,11 +1,30 @@
 
 {% block content %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('Register')}}">register</a>
+        </li>
+      </ul>
+    </div>
+</nav>
    <div class="content-section">
        <form method="POST" action="">
            {{form.hidden_tag()}}
            <fieldset class="form-group">
-               <legend class="border-bottom mb-4">join Today</legend>
+               <legend class="border-bottom mb-4">Log In</legend>
             <div class="form-group">
                 {{form.email.label}}
                 {{form.email(class="form-controll") }}
@@ -18,11 +37,14 @@
            <div class="form-group">
                {{form.submit}}
                </div>
-       </form>
+            </form>
    </div>
    <div class="border-top pt-3">
         <small class="text-muted">
-          createan account? <a class="ml-2" href="{{url_for ('Register')}}">sign up </a>
+         <a class="ml-2" href="{{url_for ('Register')}}">sign up </a>
+        </small>
+        <small>
+         <a class="ml-2" href="#">forgot password?</a>  
         </small>
    </div>
 {% endblock %} 

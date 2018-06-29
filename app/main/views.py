@@ -1,6 +1,6 @@
 from app import app
-from flask import render_template,flash,url_for,redirect
-from .forms import RegistrationForm,LoginForm
+from flask import render_template,flash,url_for,redirect,request
+from .forms import RegistrationForm,LoginForm,pitchForm
 
 
 app.config['SECRET_KEY'] = 'kabagemark'  
@@ -17,7 +17,23 @@ def Register():
         return redirect(url_for('home'))
     return render_template('register.html', form = form)
 
-@app.route("/login")
+@app.route("/login", methods=['GET','POST'])
 def login():
     form = LoginForm()
-    return render_template('login.html' , form = form)    
+    if form.validate_on_submit():
+        return redirect(url_for('home'))
+    return render_template('login.html' , form = form)
+
+@app.route("/home", methods=['GET', 'POST'])
+def pitch():
+    form = pitchForm()
+    if form.validate_on_submit():
+        name=request.form['pitch']
+        print (name)
+        if form.validate():
+            # Save the comment here.
+            flash("cannot post empty quote")
+        else:
+            flash('All the form fields are required. ')
+ 
+    return render_template('home.html', form = form, pitch = name)    

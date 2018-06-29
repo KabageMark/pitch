@@ -20,4 +20,9 @@ class LoginForm(FlaskForm):
 
     remember = BooleanField('Remember me')
 
-    submit = SubmitField('Login')    
+    submit = SubmitField('Login')
+
+class pitchForm(FlaskForm):
+    pitch = StringField('pitch',validators=[DataRequired()])
+
+    submit = SubmitField('Pitch')        
