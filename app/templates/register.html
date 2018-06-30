@@ -1,55 +1,70 @@
 
+
 {% block content %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('login')}}">login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">register</a>
-        </li>
-      </ul>
-    </div>
-</nav>
-   <div class="content-section">
+        <a class="navbar-brand" href="">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{url_for('home')}}">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{url_for('login')}}">login</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">register</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <div class="container">
+       <center>
        <form method="POST" action="">
            {{form.hidden_tag()}}
-           <fieldset class="form-group">
+           <fieldset class="form-group col-xs-3">
                <legend class="border-bottom mb-4">join Today</legend>
-               <div class="form-group">
+               <div class="form-group col-xs-3" >
                    {{form.username.label}}
-                   {{form.username(class="form-controll")}}
+                   <br>
+                   {{form.username(class="form-control input-sm col-xs-3")}}
                </div>
-            <div class="form-group">
+        
+            <div class="form-group col-xs-3" class="col-xs-3">
                 {{form.email.label}}
-                {{form.email(class="form-controll") }}
+                <br>
+                {{form.email(class="form-control input-sm col-xs-3")}}
             </div>
-            <div class="form-group">
+        
+            
+            <div class="form-group col-xs-3"class="col-xs-3">
                 {{form.password.label}}
-                {{form.password (class="form-controll")}}
+                <br>
+                {{form.password (class="form-control input-sm col-xs-3")}}
             </div>
-            <div class="form-group">
+        
+          
+            <div class="form-group"class="col-xs-3">
                 {{form.confirm_password.label}}
-                {{form.confirm_password (class="form-controll")}}
+                <br>
+                {{form.confirm_password (class="form-control input-sm col-xs-3")}}
             </div>
+        
            </fieldset>
-           <div class="form-group">
-               {{form.submit}}
+           <div class="form-group col-xs-3">
+               {{form.submit (class="btn")}}
                </div>
        </form>
    </div>
+<center>
    <div class="border-top pt-3">
         <small class="text-muted">
           Already have an account? <a class="ml-2" href="{{url_for ('login')}}">sign in </a>
         </small>
    </div>
+</center>
+</center>
 {% endblock %} 

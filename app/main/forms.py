@@ -25,4 +25,4 @@ class LoginForm(FlaskForm):
 class pitchForm(FlaskForm):
     pitch = StringField('pitch',validators=[DataRequired()])
 
-    submit = SubmitField('Pitch')        
+    submit = SubmitField('pitch')        
