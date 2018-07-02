@@ -5,22 +5,21 @@ from .forms import RegistrationForm,LoginForm,pitchForm
 
 app.config['SECRET_KEY'] = 'kabagemark'  
 
-# @app.route('/home')
-# def home():
-#     return render_template('home.html')
+@app.route('/pitch')
+def pitch():
+    return render_template('pitch.html')
 @app.route("/home", methods=['GET', 'POST'])
 def home():
     form = pitchForm()
-    name=request.form
-    if form.validate_on_submit():
-        print (name)
-        if form.validate():
-            # Save the comment here.
-            flash("cannot post empty quote")
-        else:
-            flash('All the form fields are required. ')
- 
-    return render_template('home.html', form = form, name = name)  
+    if form.validate_on_submit():    
+        pitch = form.pitch.data
+        category = form.category.data
+        print(pitch)
+        print(category)
+        return render_template('home.html',pitch=pitch, category=category,form = form)  
+        # return redirect(url_for('home'))
+
+    return render_template('home.html', form = form,)  
 
 @app.route("/register" ,methods=['GET','POST'])
 def Register():
