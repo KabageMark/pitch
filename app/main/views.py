@@ -1,6 +1,7 @@
 from app import app
 from flask import render_template,flash,url_for,redirect,request
 from .forms import RegistrationForm,LoginForm,pitchForm
+# from app import db
 
 
 app.config['SECRET_KEY'] = 'kabagemark'  
@@ -8,6 +9,7 @@ app.config['SECRET_KEY'] = 'kabagemark'
 @app.route('/pitch')
 def pitch():
     return render_template('pitch.html')
+    pitchstored = pitch.query.filter_by
 @app.route("/home", methods=['GET', 'POST'])
 def home():
     form = pitchForm()
@@ -16,6 +18,7 @@ def home():
         category = form.category.data
         print(pitch)
         print(category)
+        flash(f'The pitch {form.pitch.data} under {form.category.data} category has been created',)
         return render_template('home.html',pitch=pitch, category=category,form = form)  
         # return redirect(url_for('home'))
 
