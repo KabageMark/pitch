@@ -20,7 +20,9 @@ Installing
 
 link to the application
 
-**runnning on http//127.0.0.1:5000/ (press CTRL+C to acces link**
+**runnning on http//127.0.0.1:5000/home (press CTRL+C to acces link**
+**runnning on http//127.0.0.1:5000/Login (press CTRL+C to acces link**
+**runnning on http//127.0.0.1:5000/Register (press CTRL+C to acces link**
 **clicking on the above link will allow you run the app**
 
 until finished
