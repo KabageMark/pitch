@@ -1,9 +1,12 @@
 
 
 {% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-inverse bg-light">
     <a class="navbar-brand" href="">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -19,9 +22,6 @@
         <li class="nav-item active">
           <a class="nav-link" href="{{url_for('Register')}}">register</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{{url_for('pitch')}}">Pitch</a>
-        </li>
       </ul>
     </div>
 </nav>
@@ -34,18 +34,25 @@
                 {{form.pitch.label}}
                 {{form.pitch(class="form-control") }}
             </div>
-            <div class="form-group" placeholder="Category">
+            <div class="form-group" placeholder="Category" id="categoryform">
                 {{form.category.label}}
-                {{form.category(class="form-control") }}
-            </div>
+                {{form.category(class="form-control" )}}
+               </div>
            </fieldset>
-           <div>
-              <textarea name="comments" id="comments" style="font-family:sans-serif;font-size:1.2em;">
-              comment
-              </textarea>
-              </div>
+            <select name="categorylist" form="categoryform">
+                  <option value="love">love</option>
+                  <option value="business">business</option>
+                  <option value="sales">sales</option>
+                  <option value="keynote">keynote</option>
+            </select>
+           
+              <div class="form-group" placeholder="Category" id="categoryform">
+                  {{form.comments.label}}
+                  {{form.comments(class="form-control" )}}
+                 </div>
+              
            <div class="form-group">
-               {{form.submit(class="btn")}}
+               {{form.submit(class="btn-Success" )}}
                </div>
        </form>
        <div class="panel">
@@ -53,4 +60,40 @@
        <p>The pitch "{{pitch}}" has been submited under the <strong>{{category}}</strong>  category</p>
        
        </div>
+
+<div class="row">
+        <div class="col-md-4">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+            <center><h3 class="panel-title">Pitches</h3></center>
+              <ul class="btn">
+                  {{pitch}}
+              </ul>
+          </div>
+        </div>   
+      </div>
+
+
+      <div class="col-md-4">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+             <center><h3 class="panel-title">Category</h3></center>
+               <ul class="btn">
+                   {{category}}
+               </ul>
+           </div>
+         </div>   
+       </div>
+
+       <div class="col-md-4">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+             <center><h3 class="panel-title">Comments</h3></center>
+               <ul class="btn">
+                   {{comments}}
+               </ul>
+           </div>
+         </div>   
+       </div>
+</div>             
 {% endblock %} 

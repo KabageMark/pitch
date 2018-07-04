@@ -27,4 +27,6 @@ class pitchForm(FlaskForm):
 
     category = StringField('Category',validators=[DataRequired()])
 
+    comments = StringField('Comments')
+
     submit = SubmitField('submit') 

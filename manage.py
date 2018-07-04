@@ -5,9 +5,11 @@ from app.models import Pitches
 from  flask_migrate import Migrate, MigrateCommand
 
 
+
 manager = Manager(app)
 manager.add_command('server',Server)
 db.init_app(app)
+
 
 migrate = Migrate(app,db)
 manager.add_command('db',MigrateCommand)

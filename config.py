@@ -2,7 +2,7 @@ class Config:
     '''
     General configuration parent class
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://markchege:pitch  @localhost/pitch'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://markchege:markchege@localhost/pitch'
 
 
 
@@ -25,3 +25,7 @@ class DevConfig(Config):
     '''
 
     DEBUG = True
+Config_options = {
+    'development':DevConfig,
+    'production' :ProdConfig
+}    
