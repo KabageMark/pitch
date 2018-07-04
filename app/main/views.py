@@ -8,7 +8,7 @@ from flask_login import login_required
 
 app.config['SECRET_KEY'] = 'kabagemark'  
 
-@app.route("/home",methods=['GET','POST'])
+@app.route("/index",methods=['GET','POST'])
 def home():
     form = pitchForm()    
     pitch = form.pitch.data
